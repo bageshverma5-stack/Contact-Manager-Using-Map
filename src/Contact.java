@@ -1,5 +1,3 @@
-package contactmanager;
-
 public final class Contact {
     private String name;
     private String email;

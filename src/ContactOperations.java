@@ -1,4 +1,3 @@
-package contactmanager;
 import java.util.List;
 
 public interface ContactOperations {

@@ -1,4 +1,3 @@
-package contactmanager;
 import java.util.List;
 import java.util.Scanner;
 
@@ -125,8 +124,9 @@ public class Main {
             System.out.println("Contact not found");
         } else {
             for (Contact c : results) {
+                System.out.println("-".repeat(70));
                 System.out.println(c);
-                System.out.println("----------------");
+                System.out.println("-".repeat(70));
             }
         }
     }

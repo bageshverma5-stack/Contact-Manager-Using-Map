@@ -1,4 +1,3 @@
-package contactmanager;
 import java.util.Map;
 import java.util.List;
 import java.util.ArrayList;
@@ -6,6 +5,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 
 public class ContactManager implements ContactOperations{
+    private final ContactFileHandler fileHandler = new ContactFileHandler();
     private Map<String, Contact> contacts = new HashMap<>();
     
     @Override
@@ -18,6 +18,7 @@ public class ContactManager implements ContactOperations{
             return false;
         }
         contacts.put(key, contact);
+        fileHandler.saveContacts(getAllContacts());
         return true;
     }
 
@@ -31,7 +32,8 @@ public class ContactManager implements ContactOperations{
             return false;
         }
 
-        contacts.remove(name);
+        contacts.remove(key);
+        fileHandler.saveContacts(getAllContacts());
         return true;
     }
 
@@ -53,6 +55,7 @@ public class ContactManager implements ContactOperations{
             contact.setEmail(oldEmail);   // undo the half update
             throw e;                      // let Main show the error message
         }
+        fileHandler.saveContacts(getAllContacts());
         return true;
     }
 
